@@ -4,7 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-dev": "nodemon ./src/bin/server.js --exec babel-node",
+    "start": "node ./dist/bin/server.js",
+    "start-prod": "node ./dist/bin/server_prod.js",
+    "test": "jest",
+    "build": "rm -rf ./dist && babel -d ./dist ./src -s inline"
   },
   "repository": {
     "type": "git",
@@ -17,9 +21,25 @@
   },
   "homepage": "https://github.com/ShivamK-Cuelogic/E-Nursery#readme",
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "cors": "^2.8.5",
     "eslint": "^5.16.0",
     "express": "^4.17.0",
     "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^24.7.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.19.1",
+    "jest": "^24.7.0",
+    "nodemon": "^1.19.0"
   }
 }

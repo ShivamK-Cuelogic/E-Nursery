@@ -1,5 +1,6 @@
 import http from "http";
 import app from "./../app";
+// import logger from "./../lib/// logger";
 
 
 /**
@@ -37,11 +38,11 @@ const onError = error => {
     // handle specific listen errors with friendly messages
     switch (error.code) {
     case "EACCES":
-        logger.error(bind + " requires elevated privileges");
+        // logger.error(bind + " requires elevated privileges");
         process.exit(1);
         break;
     case "EADDRINUSE":
-        logger.error(bind + " is already in use");
+        // logger.error(bind + " is already in use");
         process.exit(1);
         break;
     default:
@@ -58,10 +59,10 @@ const onListening = () => {
     let bind = typeof addr === "string"
         ? "pipe " + addr
         : "port " + addr.port;
-    logger.info("Listening on " + bind);
+    // logger.info("Listening on " + bind);
 };
 
-const port = normalizePort(nconf.get("port") || "3000");
+const port = normalizePort("3000");
 app.set("port", port);
 
 const server = http.createServer(app);

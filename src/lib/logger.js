@@ -1,3 +1,4 @@
+/*
 import winston from "winston";
 import fs from "fs";
 import path from "path";
@@ -64,3 +65,4 @@ logger.stream = {
 };
 
 export default logger;
+*/
