@@ -59,7 +59,7 @@ const onListening = () => {
     let bind = typeof addr === "string"
         ? "pipe " + addr
         : "port " + addr.port;
-    // logger.info("Listening on " + bind);
+    console.log("Listening on " + bind);
 };
 
 const port = normalizePort("3000");

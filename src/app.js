@@ -16,5 +16,10 @@ app.get("/ping", (req, res, next) => {
     }`);
 });
 
+app.use("/", express.static(__dirname + "/public"));
+
+app.get("/",(req,res)=> {
+    res.sendFile("./public/index.html", {root: __dirname });
+});
 
 export default app;

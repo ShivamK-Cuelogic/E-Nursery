@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
 </head>
 
-<body>
+<body onload="loadForm();">
     <div class="mainDiv">
         <div class="formDiv">
             <form>
@@ -35,8 +36,8 @@
                                 <th>Price</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
+                        <tbody id="tableBody">
+                            <!-- <tr>
                                 <td>Default</td>
                                 <td>Defaultson</td>
                                 <td>
@@ -149,19 +150,19 @@
                                 <td>
                                     12000
                                 </td>
-                            </tr>
-                            <tr style="font-weight:bold;font-size: 15px">
+                            </tr> -->
+                            <!-- <tr style="font-weight:bold;font-size: 15px">
                                 <td colspan="3">Total</td>
 
-                                <td>25000</td>
+                                <td>0</td>
                             </tr>
                             <tr>
                                 <td colspan="3"></td>
                                 <td>
-                                    <button type="button" class="btn btn-success">Save Record</button>
+                                    <button type="button" onclick="submitButtonClick();" class="btn btn-success">Save Record</button>
                                 </td>
 
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
