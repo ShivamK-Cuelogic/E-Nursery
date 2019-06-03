@@ -1,0 +1,16 @@
+{
+    "MYSQL": {
+        "HOST": "localhost",
+        "DB": "nursery",
+        "USER": "root",
+        "PASSWORD": "password",
+        "POOL_CONNECTION_SIZE": 10
+    },
+    "logger": {
+        "dir": "log",
+        "log_file": "application",
+        "error_file": "error.log",
+        "level": "debug"
+    }
+
+}

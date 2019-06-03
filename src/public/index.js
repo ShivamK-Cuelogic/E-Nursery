@@ -1,25 +1,26 @@
 console.log("Js file loaded");
 
-
 const submitButtonClick = () => {
     console.log("submit button clicked");
 };
 
-const loadForm = () => {
-    let data = [{
-        cropName: "ABC",
-        price: "142"
-    }, {
-        cropName: "PQR",
-        price: "172"
-    }, {
-        cropName: "XYZ",
-        price: "189"
-    }, {
-        cropName: "MNO",
-        price: "175"
-    }];
-
+const loadForm = async () => {
+    // let data = [{
+    //     cropName: "ABC",
+    //     price: "142"
+    // }, {
+    //     cropName: "PQR",
+    //     price: "172"
+    // }, {
+    //     cropName: "XYZ",
+    //     price: "189"
+    // }, {
+    //     cropName: "MNO",
+    //     price: "175"
+    // }];
+    console.log("here")
+    let data = await callAPI();
+    data = data.data;
     let trHtml = "";
     data.forEach(element => {
         trHtml += `<tr>
