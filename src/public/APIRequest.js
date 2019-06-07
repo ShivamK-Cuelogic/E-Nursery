@@ -1,6 +1,6 @@
 
 console.log("APIRequest js file loaded");
-const callAPI = params => {
+const getCrops = params => {
     return new Promise((resolve,reject) => {
         $.ajax({
             url: "http://localhost:3000/api/crop",

@@ -16,6 +16,18 @@ class CropController {
         }
     }
 
+    addRecords = async (req, res) => {
+        console.log("CropModel :: addRecords ");
+        try {
+            const result = await cropModel.addRecords(req.body);
+            const message =" Records added successfully! ";
+            res.status(responseFormat.statusCode["SUCCESS"]).send(responseFormat.getResponseObject("success", responseFormat.statusCode["SUCCESS"], message, result));
+        } catch (err) {
+            console.log("CropModel :: addRecords : error ",err);
+            res.status(responseFormat.statusCode["INTERNAL_SERVER_ERROR"]).send(responseFormat.getResponseObject("error", responseFormat.statusCode["INTERNAL_SERVER_ERROR"], err.message, null));
+        }
+    }
+
 }
 
 export default new CropController();
