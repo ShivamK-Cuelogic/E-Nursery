@@ -17,7 +17,7 @@ class CropController {
     }
 
     addRecords = async (req, res) => {
-        console.log("CropModel :: addRecords ");
+        console.log("CropModel :: addRecords ",req.body);
         try {
             const result = await cropModel.addRecords(req.body);
             const message =" Records added successfully! ";

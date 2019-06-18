@@ -1,6 +1,6 @@
 console.log("Js file loaded");
 let crops;
-const submitButtonClick = () => {
+const submitButtonClick = async () => {
     console.log("submit button clicked");
     const name = $("#name").val();
     const phoneNumber = $("#phone_number").val();
@@ -10,9 +10,12 @@ const submitButtonClick = () => {
     let obj={},cropSelected=[];
     crops.forEach(crop => {
         if(Number($("#select_"+crop.id).find(":selected").text()) !=0) {
+            obj={};
             obj.id = crop.id;
             obj.value = Number($("#select_"+crop.id).find(":selected").text());
-            cropSelected.push(obj);
+            obj.price = Number($("#subtotal_"+crop.id).text());
+            console.log("obj===>",obj);
+            cropSelected.push({ ...obj});
         }
     });
 
@@ -28,10 +31,15 @@ const submitButtonClick = () => {
         name: name,
         phone_number: phoneNumber,
         total: total,
-        crop: cropSelected
+        crop: JSON.stringify(cropSelected)
     };
     console.log("paramObj",paramObj);
-    
+    await saveRecord(paramObj);
+
+    console.log("Record saved !!");
+    alert("Record saved !!");
+    loadForm();
+
 
 };
 

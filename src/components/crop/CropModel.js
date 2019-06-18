@@ -1,4 +1,4 @@
-import logger from "./../../lib/logger";
+import mysql from "mysql";
 import utilityModel from "./../utility/UtilityModel";
 class CropModel {
 
@@ -21,14 +21,14 @@ class CropModel {
         console.log("CropModel :: addRecords ");
         return new Promise(async (resolve, reject) => {
             try {
-                let sql = `INSERT INTO order(name,phoneNumber,amount) VALUES(${params.name},${params.phoneNumber},${params.amount})`;
+                let sql = "INSERT INTO `order`(name,phoneNumber,amount) VALUES("+mysql.escape(params.name)+","+mysql.escape(params.phone_number)+","+mysql.escape(params.total)+")";
                 const result = await utilityModel.execute(sql);
 
                 sql = `INSERT INTO order_detail(orderId,cropId,quantity,price)
                 VALUES`;
-
+                params.crop = JSON.parse(params.crop);
                 params.crop.forEach(element => {
-                    sql += `(${result.insertId},${element.id},${element.value},${element.price}),`
+                    sql += `(${mysql.escape(result.insertId)},${mysql.escape(element.id)},${mysql.escape(element.value)},${mysql.escape(element.price)}),`;
                 });
                 sql = sql.slice(0,-1);
 
